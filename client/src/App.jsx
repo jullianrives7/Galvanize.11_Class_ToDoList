@@ -1,16 +1,19 @@
 import React from "react";
 import List from "./List";
-import AddBtn from "./AddBtn";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [refreshData, setRefreshData] = useState(false);
+
   let ApiUrl = "https://mvp2-api.onrender.com";
 
   const contextData = {
     items,
     setItems,
+    refreshData,
+    setRefreshData,
     ApiUrl,
   };
 
@@ -29,7 +32,6 @@ function App() {
     <listContextStates.Provider value={{ ...contextData }}>
       <div className="App">
         <List />
-        <AddBtn />
       </div>
     </listContextStates.Provider>
   );
