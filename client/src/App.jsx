@@ -24,7 +24,8 @@ function App() {
 
   useEffect(() => {
     getTasksFromApi();
-  }, []);
+    setRefreshData(false);
+  }, [refreshData]);
 
   console.log("items: ", items);
 
